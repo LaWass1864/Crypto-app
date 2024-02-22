@@ -10,6 +10,7 @@ const HeaderInfos = () => {
         axios
             // 𝗼𝗻 𝗮 𝗹𝗲 𝗿𝗲𝗻𝗱𝘂 𝗱𝗮𝗻𝘀 𝗹𝗮 𝗰𝗼𝗻𝘀𝗼𝗹𝗲 > 𝗰𝗼𝗺𝗽𝗼𝗻𝗲𝗻𝘁𝘀 > 𝗦𝘁𝗮𝘁𝗲
             .get('https://api.coingecko.com/api/v3/global')
+            // aller directement aux données de la base de données
             .then((res) => setHeaderData(res.data.data));
     }, []);
 
