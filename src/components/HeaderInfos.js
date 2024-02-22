@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+// PercentChange est la fonction qui conditionne les couleurs des pourcentages des chiffres.
 import PercentChange from './PercentChange';
 
 const HeaderInfos = () => {
@@ -8,7 +9,7 @@ const HeaderInfos = () => {
 
     useEffect(() => {
         axios
-            // 𝗼𝗻 𝗮 𝗹𝗲 𝗿𝗲𝗻𝗱𝘂 𝗱𝗮𝗻𝘀 𝗹𝗮 𝗰𝗼𝗻𝘀𝗼𝗹𝗲 > 𝗰𝗼𝗺𝗽𝗼𝗻𝗲𝗻𝘁𝘀 > 𝗦𝘁𝗮𝘁𝗲
+        //   ?on recupere les données de la base de données 
             .get('https://api.coingecko.com/api/v3/global')
             // aller directement aux données de la base de données
             .then((res) => setHeaderData(res.data.data));

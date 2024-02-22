@@ -8,14 +8,17 @@ const PercentChange = ({ percent }) => {
     useEffect(() => {
         if (percent) {
             if (percent >= 0) {
+                // si le pourcentage est supérieur à 0 on met en vert  
                 setColor(colors.green1)
             } else {
+                // si le pourcentage est inférieur à 0 on met en rouge
                 setColor(colors.red1)
             }
         } else {
+            // sinon on laisse en blanc 
             setColor(colors.white1)
         }
-        //𝗱è𝘀 𝗾𝘂𝗲 𝘁𝘂 𝗮𝘀 𝗹𝗲 𝗰𝗵𝗶𝗳𝗳𝗿𝗲, 𝗿𝗲𝗹𝗮𝗻𝗰𝗲 𝗺𝗼𝗶 𝗹𝗲 𝘂𝘀𝗲𝗘𝗳𝗳𝗲𝗰𝘁
+        //𝗱è𝘀 𝗾𝘂𝗲 𝘁𝘂 𝗮𝘀 𝗹𝗲 𝗰𝗵𝗶𝗳𝗳𝗿𝗲, 𝗿𝗲𝗹𝗮𝗻𝗰𝗲 𝗺𝗼𝗶 𝗹𝗲 𝘂𝘀𝗲𝗘𝗳𝗳𝗲𝗰𝘁 avec le [percent] 
     }, [percent])
 
 
