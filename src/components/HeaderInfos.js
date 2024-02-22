@@ -11,11 +11,12 @@ const HeaderInfos = () => {
         axios
         //   ?on recupere les données de la base de données 
             .get('https://api.coingecko.com/api/v3/global')
-            // aller directement aux données de la base de données
+            // aller directement aux données de la base de données avec le chemin 
             .then((res) => setHeaderData(res.data.data));
     }, []);
 
     return (
+        // header de l'application
         <div className='header-container'>
             <ul className='title'>
                 <li>
@@ -24,11 +25,12 @@ const HeaderInfos = () => {
                         <img src='./assets/logo.png' alt='logo' /> Watch Tower
                     </h1>
                 </li>
-              
+              {/*  Crypto-monnaies */}
                 <li>
                     {/* on demande si header.data.active_cryptocurrencies existe sinon il affiche rien */}
                     Crypto-monnaies : {" "} {headerData.active_cryptocurrencies && headerData.active_cryptocurrencies.toLocaleString()}
                 </li>
+                {/* Marchés */}
                 <li>Marchés : {headerData.markets && headerData.markets}</li>
             </ul>
             <ul className='infos-mkt'>
