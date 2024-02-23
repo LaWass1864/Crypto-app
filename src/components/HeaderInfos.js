@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 // PercentChange est la fonction qui conditionne les couleurs des pourcentages des chiffres.
 import PercentChange from './PercentChange';
+import TableFilter from './TableFilter';
 
 const HeaderInfos = () => {
 
@@ -35,15 +36,17 @@ const HeaderInfos = () => {
             </ul>
             <ul className='infos-mkt'>
                 <li className='global-mkt'>Global Market cap :
-             
+             {/* pour colorer les données j'ai crée un composant PercentChange qui va colorer les chiffres et on va te passer la props percent */}
                     <PercentChange percent={headerData.market_cap_change_percentage_24h_usd} />
                 </li>
+                {/* on teste si cela existe ensuite on affiche les données */}
                 <li>BTC dominance : {headerData.market_cap_percentage && headerData.market_cap_percentage.btc.toFixed(1) + "%"}
                 </li>
                 <li>BTC dominance : {headerData.market_cap_percentage && headerData.market_cap_percentage.eth.toFixed(1) + "%" }
                 </li>
-              
+         
             </ul>
+            <TableFilter />
         </div>
     );
 };

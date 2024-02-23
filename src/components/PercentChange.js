@@ -24,6 +24,7 @@ const PercentChange = ({ percent }) => {
 
     return (
         <p className='percent-change-container' style={{ color }}>
+            {/* s'il y a un pourcentage sinon il renvoit un tiret */}
             {percent ? percent.toFixed(1) + "%" : "-"}
         </p>
     );
