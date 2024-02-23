@@ -11,7 +11,7 @@ const GlobalChart = ({ coinsData }) => {
           name:
             coinsData[1].symbol.toUpperCase() +
             " " +
-            coinsData[i].market_cap_change_pourcentage_24.toFixed(1) +
+            coinsData[i].market_cap_change_percentage_24h.toFixed(1) +
             "%",
           size: coinsData[i].market_cap,
           fill: null,
