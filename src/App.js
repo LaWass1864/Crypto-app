@@ -3,6 +3,7 @@ import HeaderInfos from "./components/HeaderInfos";
 import GlobalChart from "./components/GlobalChart";
 import { data as dbData } from "./db.js"; // Importer les données du fichier db.js
 import axios from "axios";
+import Table from "./components/Table.js";
 
 const App = () => {
   const [coinsData, setCoinsData] = useState([]);
@@ -31,6 +32,7 @@ const App = () => {
         <HeaderInfos />
         <GlobalChart coinsData={coinsData} />
       </header>
+      <Table coinsData={coinsData} />
     </div>
   );
 };
