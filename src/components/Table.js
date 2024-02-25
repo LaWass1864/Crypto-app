@@ -6,9 +6,9 @@ const Table = ({ coinsData }) => {
     const [rangeNumber, SetRangeNumber] = useState(100)
     return (
         <div className="table-container">
-            <div className="">
+            <div className="table-header">
                 <div className="range-container">
-                    <span>Top
+                    <span>Top {" "}
                         {/* connexion de l'input avec le range avec la value={rangeNumber} */}
                     <input type='text'
                     value={rangeNumber} onChange={(e) => SetRangeNumber(e.target.value)} />
