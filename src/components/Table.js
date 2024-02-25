@@ -20,7 +20,7 @@ const Table = ({ coinsData }) => {
 
   return (
     <div className="table-container">
-      <div className="table-header">
+      <ul className="table-header">
         <div className="range-container">
           <span>
             Top{" "}
@@ -63,7 +63,9 @@ const Table = ({ coinsData }) => {
             <label htmlFor={el}>{el}</label>
           </li>
         ))}
-      </div>
+      </ul>
+      {coinsData && coinsData.map((coin) => 
+        <h1>{coin.symbol}</h1>)}
     </div>
   );
 };
