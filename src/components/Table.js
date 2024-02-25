@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TableLine from "./TableLine";
 
 const Table = ({ coinsData }) => {
   // nombre de ligne qu'on va afficher
@@ -53,7 +54,7 @@ const Table = ({ coinsData }) => {
               }
               onClick={() => {
                 if (orderBy === el) {
-                  setOrderBy( el + "reverse")
+                  setOrderBy(el + "reverse")
                 } else {
                 setOrderBy(el) 
               }
@@ -64,8 +65,12 @@ const Table = ({ coinsData }) => {
           </li>
         ))}
       </ul>
-      {coinsData && coinsData.map((coin) => 
-        <h1>{coin.symbol}</h1>)}
+      {/* est-ce que coinsData existe */}
+      {coinsData && coinsData
+      .slice(0, rangeNumber)
+      .map((coin,index) => 
+      <TableLine coin={coin}index={index} />)}
+       
     </div>
   );
 };
