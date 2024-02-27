@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TableLine from "./TableLine";
+import ToTop from "./ToTop";
 
 const Table = ({ coinsData }) => {
   // nombre de ligne qu'on va afficher
@@ -13,6 +14,7 @@ const Table = ({ coinsData }) => {
     "Volume",
     "1h",
     "1j",
+    "1s",
     "1m",
     "6m",
     "1a",
@@ -39,6 +41,7 @@ const Table = ({ coinsData }) => {
             value={rangeNumber}
             onChange={(e) => SetRangeNumber(e.target.value)}
           />
+          <ToTop />
         </div>
         {/* mapper les boutons de type radio*/}
         {tableHeader.map((el) => (
@@ -54,10 +57,10 @@ const Table = ({ coinsData }) => {
               }
               onClick={() => {
                 if (orderBy === el) {
-                  setOrderBy(el + "reverse")
+                  setOrderBy(el + "reverse");
                 } else {
-                setOrderBy(el) 
-              }
+                  setOrderBy(el);
+                }
               }}
             />
             {/*  on met les el */}
@@ -66,11 +69,18 @@ const Table = ({ coinsData }) => {
         ))}
       </ul>
       {/* est-ce que coinsData existe */}
-      {coinsData && coinsData
-      .slice(0, rangeNumber)
-      .map((coin,index) => 
-      <TableLine coin={coin}index={index} />)}
-       
+      {coinsData &&
+        coinsData
+          .slice(0, rangeNumber)
+          .sort((a, b) => {
+            switch (orderBy) {
+              case "Prix":
+                return b.current_price - a.current_price;
+                case "Prixreverse": 
+                return a.current_price - b.current_price;
+            }
+          })
+          .map((coin, index) => <TableLine coin={coin} index={index} />)}
     </div>
   );
 };
