@@ -76,8 +76,46 @@ const Table = ({ coinsData }) => {
             switch (orderBy) {
               case "Prix":
                 return b.current_price - a.current_price;
-                case "Prixreverse": 
+              case "Prixreverse":
                 return a.current_price - b.current_price;
+                case "MarketCap":
+                return b.current_price - a.current_price;
+              case "MarketCapreverse":
+                return a.current_price - b.current_price;
+                case "Volume":
+                return b.current_price - a.current_price;
+              case "Volumereverse":
+                return a.current_price - b.current_price;
+                case "1h":
+                return b.current_price - a.current_price;
+              case "1hreverse":
+                return a.current_price - b.current_price;
+                case "1j":
+                return b.current_price - a.current_price;
+              case "1jreverse":
+                return a.current_price - b.current_price;
+                case "1s":
+                return b.current_price - a.current_price;
+              case "1sreverse":
+                return a.current_price - b.current_price;
+                case "1m":
+                return b.current_price - a.current_price;
+              case "1mreverse":
+                return a.current_price - b.current_price;
+                case "6m":
+                return b.current_price - a.current_price;
+              case "6mreverse":
+                return a.current_price - b.current_price;
+                case "1a":
+                return b.current_price - a.current_price;
+              case "1areverse":
+                return a.current_price - b.current_price;
+                case "ATH":
+                return b.current_price - a.current_price;
+              case "ATHreverse":
+                return a.current_price - b.current_price;
+                default: 
+                null;
             }
           })
           .map((coin, index) => <TableLine coin={coin} index={index} />)}
