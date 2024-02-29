@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PercentChange from './PercentChange';
 import StartIcon from "./StartIcon";
+import CoinChart from "./CoinChart";
 
 const TableLine = ({ coin, index }) => {
   const [showChart, setShowChart]= useState(false)
@@ -32,8 +33,14 @@ const TableLine = ({ coin, index }) => {
           <img src={coin.image} alt="logo" height="20" />
         </div>
         <div className="infos">
-          <div className="chart-img">
+          {/*  lorsqu'on survole cette class on revele le composant  */}
+          <div className="chart-img" 
+          onMouseEnter={() => setShowChart(true)} 
+          onMouseLeave={() => setShowChart(false)}>
             <img src="./assets/chart-icon.svg" alt="chart-icon" />
+            <div className="chart-container" id={coin.name}>
+              {showChart && <CoinChart coinId={coin.id} coinName={coin.name}/>}
+            </div>
           </div>
           <h4>{coin.name}</h4>
           <span>- {coin.symbol.toUpperCase()}</span>
