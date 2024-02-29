@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import PercentChange from './PercentChange';
 import StartIcon from "./StartIcon";
 
 const TableLine = ({ coin, index }) => {
+  const [showChart, setShowChart]= useState(false)
+
     const priceFormater = (num) => {
         if (Math.round(num).toString().length < 4) {
           return new Intl.NumberFormat("us-US", {
